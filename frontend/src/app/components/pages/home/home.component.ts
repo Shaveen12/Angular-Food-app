@@ -5,11 +5,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from '../../partials/search/search.component';
 import { TagsComponent } from '../../partials/tags/tags.component';
+import { NotFoundComponent } from '../../partials/not-found/not-found.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, CommonModule, SearchComponent, TagsComponent],
+  imports: [RouterModule, CommonModule, SearchComponent, TagsComponent, NotFoundComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

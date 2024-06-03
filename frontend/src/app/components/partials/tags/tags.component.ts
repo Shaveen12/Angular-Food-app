@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 export class TagsComponent {
   tags?:Tag[];
   constructor(foodservice:FoodService){
-    this.tags = foodservice.getAllTags();}
+    foodservice.getAllTags().subscribe(serverTags => {
+      this.tags = serverTags;
+    });}
 
 }

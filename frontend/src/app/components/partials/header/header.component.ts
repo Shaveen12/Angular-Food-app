@@ -22,6 +22,8 @@ export class HeaderComponent {
 
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser
+      //console.log("testing user");
+      //console.log(newUser);
     })
     
   }
@@ -31,6 +33,8 @@ export class HeaderComponent {
   }
 
   get isAuth(){
+    //console.log("isAuth");
+    //console.log(this.user.token);
     return this.user.token;
   }
 

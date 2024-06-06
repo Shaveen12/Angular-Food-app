@@ -5,7 +5,9 @@ import { CommonModule } from '@angular/common';
 
 const VALIDATORS_MESSAGES:any = {
   required: 'Should not be empty',
-  email: 'Email is not valid'
+  email: 'Email is not valid',
+  minlength: 'Field is too short',
+  motMatch: 'Passwords do not match'
 }
 
 @Component({
@@ -38,7 +40,7 @@ export class InputValidationComponent implements OnChanges{
 
   checkValidation() {
     const errors = this.control.errors;
-    console.log('Control Errors:', errors); // Debugging line
+    //console.log('Control Errors:', errors); // Debugging line
     if (!errors){
       this.errorMessages = [];
       return;
@@ -46,6 +48,6 @@ export class InputValidationComponent implements OnChanges{
 
     const errorKeys = Object.keys(errors);
     this.errorMessages = errorKeys.map(key => VALIDATORS_MESSAGES[key]);
-    console.log('Error Messages:', this.errorMessages); // Debugging line
+    //console.log('Error Messages:', this.errorMessages); // Debugging line
   }
 }

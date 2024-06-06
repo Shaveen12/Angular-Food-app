@@ -31,8 +31,8 @@ export class FoodService {
     this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
   }
 
-  getFoodById(foodid:string):Observable<Food[]>{
+  getFoodById(foodid:string):Observable<Food>{
     //console.log("Fetching food by id", foodid);
-    return this.http.get<Food[]>(FOODS_BY_ID_URL + foodid);
+    return this.http.get<Food>(FOODS_BY_ID_URL + foodid);
   }
 }

@@ -27,11 +27,11 @@ export class FoodPageComponent {
       if (params.id) {
         this.foodService.getFoodById(params.id).subscribe(
           (serverFood) => {
-            //console.log(serverFood);
-            this.food = serverFood[0];
+            console.log(serverFood);
+            this.food = serverFood;
           },
           (error) => {
-            console.error('Error fetching food:', error);
+            //console.error('Error fetching food:', error);
           }
         );
       }

@@ -11,6 +11,7 @@ export default (req: any, res: any, next: any) => {
         const decodedUser = verify(token, process.env.JWT_SECRET!);
         //console.log(decodedUser)
         req.user = decodedUser;
+        //console.log(req);
     } catch (error) {
         return res.status(HTTP_UNAUTHORIZED).json({ error: 'Unauthorized from mid' });
     }

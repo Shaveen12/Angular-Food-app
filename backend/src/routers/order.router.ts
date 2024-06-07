@@ -11,6 +11,7 @@ router.use(auth);
 router.post('/create',asyncHandler(
     async (req:any, res:any) => {
         const requestOrder = req.body;
+        //console.log(req);
 
         if(requestOrder.items.length <= 0){
             res.status(HTTP_BAD_REQUEST).send('Cart is empty!');
@@ -29,5 +30,21 @@ router.post('/create',asyncHandler(
 
     }
 ) )
+
+router.get('/newOrderForCurrentUser', asyncHandler(
+    async (req:any, res:any) => {
+        const order = await OrderModel.findOne({
+            user: req.user.id,
+            status: OrderStatus.NEW
+        });
+        
+        if(order){
+        console.log(order);
+        res.json(order);
+        } else {
+            res.status(HTTP_BAD_REQUEST).send('No new order found!');
+        }
+    }
+))
 
 export default router;
